@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ariska Dwi - Web Developer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary-color: #f8fafc;
+            --text-color: #334155;
+            --text-light: #64748b;
+            --background-color: #ffffff;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --transition: all 0.3s ease-in-out;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f1f5f9;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 80px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 60px;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+            opacity: 0.4;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            opacity: 0.9;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Main Content */
+        main {
+            padding-bottom: 60px;
+        }
+
+        .card {
+            background-color: var(--background-color);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+            border-radius: 3px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        ul {
+            list-style-type: none;
+            margin-bottom: 20px;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        ul li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-item {
+            background-color: var(--secondary-color);
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+        }
+
+        .skill-item:hover {
+            background-color: #e2e8f0;
+        }
+
+        .skill-item i {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-color);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .tagline {
+                font-size: 1rem;
+            }
+            
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="photo.png" alt="Ariska Dwi" class="profile-pic">
+            <h1>Ariska Dwi</h1>
+            <p class="tagline">Mahasiswa Sistem Informasi & Aspiring Web Developer</p>
+            <div class="social-links">
+                <a href="https://github.com/arizska" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="www.linkedin.com/in/ariska-dwi-ardianti-1b7bb1355" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:arizskadwi@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                <a href="tel:+62895338680263" aria-label="Phone"><i class="fas fa-phone"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="card" id="about">
+            <h2>Tentang Saya</h2>
+            <p>Mahasiswa Sistem Informasi dengan latar belakang multimedia dan pengalaman PKL di administrasi kepegawaian DPRD Tangsel. Antusias belajar pemrograman dan desain dasar, serta berkomitmen menjadi programmer profesional yang beretika.</p>
+            <p>Saya memiliki minat yang kuat dalam pengembangan web dan selalu bersemangat untuk mempelajari teknologi baru. Saat ini sedang mencari peluang kerja remote untuk pengembangan diri dan berkontribusi pada proyek-proyek yang menantang.</p>
+            <a href="#contact" class="btn">Hubungi Saya</a>
+        </section>
+
+        <section class="card" id="skills">
+            <h2>Keahlian</h2>
+            <div class="skills-container">
+                <div class="skill-item">
+                    <i class="fab fa-html5"></i>
+                    <span>HTML & CSS</span>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-php"></i>
+                    <span>PHP (Dasar)</span>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-database"></i>
+                    <span>MySQL (Dasar)</span>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-paint-brush"></i>
+                    <span>Desain Grafis</span>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-user-edit"></i>
+                    <span>UI/UX Dasar</span>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-file-word"></i>
+                    <span>Microsoft Office</span>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Administrasi Dokumen</span>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-users"></i>
+                    <span>Kerja Tim</span>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-language"></i>
+                    <span>Bahasa Inggris (Intermediate)</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="card" id="experience">
+            <h2>Pengalaman</h2>
+            <h3>PKL - DPRD Kota Tangerang Selatan</h3>
+            <p><em>Administrasi Kepegawaian | November 2023 - Februari 2024</em></p>
+            <ul>
+                <li>Mengelola dokumen kepegawaian dan pengarsipan</li>
+                <li>Membantu proses administrasi penerimaan pegawai baru</li>
+                <li>Menginput data ke dalam sistem database</li>
+                <li>Membuat laporan bulanan kepegawaian</li>
+            </ul>
+            
+            <h3>Freelance Desainer Grafis</h3>
+            <p><em>2021 - Sekarang</em></p>
+            <ul>
+                <li>Membuat desain poster, brosur, dan konten media sosial</li>
+                <li>Bekerja dengan klien untuk memahami kebutuhan desain</li>
+                <li>Menggunakan Canva dan Photoshop untuk membuat desain</li>
+            </ul>
+        </section>
+
+        <section class="card" id="education">
+            <h2>Pendidikan</h2>
+            <h3>Universitas Pamulang - Sistem Informasi</h3>
+            <p><em>2024 - Sekarang</em></p>
+            <p>Fokus pada pengembangan web, manajemen database, dan analisis sistem.</p>
+            
+            <h3>SMK Waskito - Jurusan Multimedia</h3>
+            <p><em>2021 - 2024</em></p>
+            <p>Mempelajari dasar-dasar desain grafis, animasi, dan produksi multimedia.</p>
+        </section>
+
+        <section class="card" id="contact">
+            <h2>Kontak</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <h3>Email</h3>
+                        <a href="mailto:arizskadwi@gmail.com">arizskadwi@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div>
+                        <h3>Telepon</h3>
+                        <a href="tel:+62895338680263">+62 895-338-680-263</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div>
+                        <h3>GitHub</h3>
+                        <a href="https://github.com/username" target="_blank">github.com/username</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div>
+                        <h3>LinkedIn</h3>
+                        <a href="https://linkedin.com/in/username" target="_blank">linkedin.com/in/username</a>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-block" onclick="downloadCV()">Download CV</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Ariska Dwi. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        function downloadCV() {
+            const cvUrl = 'CV_ARISKA.pdf';
+            const link = document.createElement('a');
+            link.href = cvUrl;
+            link.download = 'Ariska_Dwi_CV.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            const btn = document.querySelector('.btn-block');
+            btn.innerHTML = '<i class="fas fa-check"></i> CV Downloaded!';
+            btn.style.backgroundColor = '#10b981';
+            setTimeout(() => {
+                btn.innerHTML = 'Download CV';
+                btn.style.backgroundColor = '';
+            }, 2000);
+        }
+
+        const cards = document.querySelectorAll('.card');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        cards.forEach(card => {
+            observer.observe(card);
+        });
+
+        const tagline = document.querySelector('.tagline');
+        const originalText = tagline.textContent;
+        tagline.textContent = '';
+        
+        let i = 0;
+        const typeWriter = () => {
+            if (i < originalText.length) {
+                tagline.textContent += originalText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 50);
+            }
+        };
+        
+    </script>
+</body>
+</html>
