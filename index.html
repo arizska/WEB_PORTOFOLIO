@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Ariska Dwi - Web Developer Portfolio</title>
+    <meta name="description" content="Portfolio Ariska Dwi, Mahasiswa Sistem Informasi & Aspiring Web Developer dengan pengalaman di pengembangan web, desain grafis, dan administrasi.">
+    <meta name="keywords" content="web developer, portfolio, ariska dwi, sistem informasi, HTML, CSS, PHP, MySQL, desain grafis, UI/UX">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -266,6 +268,84 @@
             font-size: 1.2rem;
         }
 
+        /* Projects Section */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+            padding: 20px;
+            transition: var(--transition);
+            border: 1px solid #e2e8f0;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 10px 0;
+        }
+
+        .tech-tag {
+            background-color: #e0e7ff;
+            color: var(--primary-dark);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .project-links a {
+            font-size: 0.9rem;
+            padding: 8px 15px;
+        }
+
+        /* Testimonial Section */
+        .testimonial-card {
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+            padding: 25px;
+            position: relative;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        .testimonial-role {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
         /* Footer */
         footer {
             background-color: var(--text-color);
@@ -307,7 +387,7 @@
                 font-size: 1rem;
             }
             
-            .skills-container {
+            .skills-container, .projects-container {
                 grid-template-columns: 1fr;
             }
             
@@ -325,7 +405,7 @@
             <p class="tagline">Mahasiswa Sistem Informasi & Aspiring Web Developer</p>
             <div class="social-links">
                 <a href="https://github.com/arizska" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="www.linkedin.com/in/ariska-dwi-ardianti-1b7bb1355" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.linkedin.com/in/ariska-dwi-ardianti-1b7bb1355" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                 <a href="mailto:arizskadwi@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
                 <a href="tel:+62895338680263" aria-label="Phone"><i class="fas fa-phone"></i></a>
             </div>
@@ -379,6 +459,58 @@
                     <i class="fas fa-language"></i>
                     <span>Bahasa Inggris (Intermediate)</span>
                 </div>
+            </div>
+        </section>
+
+        <section class="card" id="projects">
+            <h2>Proyek</h2>
+            <div class="projects-container">
+                <div class="project-card">
+                    <h3 class="project-title">Website Portfolio Pribadi</h3>
+                    <p>Website portfolio statis yang menampilkan informasi pribadi, keahlian, dan proyek-proyek yang telah dikerjakan.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/arizska/portfolio" target="_blank" class="btn">View Code</a>
+                        <a href="#" class="btn" style="background-color: #6b7280;">Live Demo</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">Sistem Informasi Sederhana</h3>
+                    <p>Sistem informasi dengan CRUD dasar untuk mengelola data menggunakan PHP dan MySQL.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">Bootstrap</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/arizska/simple-crud" target="_blank" class="btn">View Code</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">Desain Poster Event</h3>
+                    <p>Koleksi desain poster untuk berbagai event yang dibuat menggunakan Canva dan Photoshop.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Canva</span>
+                        <span class="tech-tag">Photoshop</span>
+                        <span class="tech-tag">Desain Grafis</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="btn" style="background-color: #6b7280;">View Designs</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="card" id="testimonial">
+            <h2>Testimoni</h2>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Ariska sangat teliti dalam mengerjakan tugas administrasi dan cepat belajar sistem baru. Dia juga memiliki kreativitas yang baik dalam desain grafis yang sangat membantu tim kami."</p>
+                <p class="testimonial-author">Bapak Budi, Kepala Bagian Kepegawaian</p>
+                <p class="testimonial-role">DPRD Kota Tangerang Selatan</p>
             </div>
         </section>
 
@@ -440,7 +572,7 @@
                     </div>
                     <div>
                         <h3>GitHub</h3>
-                        <a href="https://github.com/username" target="_blank">github.com/username</a>
+                        <a href="https://github.com/arizska" target="_blank">github.com/arizska</a>
                     </div>
                 </div>
                 <div class="contact-item">
@@ -449,7 +581,7 @@
                     </div>
                     <div>
                         <h3>LinkedIn</h3>
-                        <a href="https://linkedin.com/in/username" target="_blank">linkedin.com/in/username</a>
+                        <a href="https://www.linkedin.com/in/ariska-dwi-ardianti-1b7bb1355" target="_blank">Ariska Dwi Ardianti</a>
                     </div>
                 </div>
             </div>
@@ -515,7 +647,7 @@
                 setTimeout(typeWriter, 50);
             }
         };
-        
+        typeWriter();
     </script>
 </body>
 </html>
